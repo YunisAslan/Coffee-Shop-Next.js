@@ -1,4 +1,12 @@
 import './globals.css'
+import Navbar from '@/components/Navbar'
+import { Jost } from 'next/font/google'
+
+
+const jost = Jost({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"]
+})
 
 export const metadata = {
   title: 'Create Next App',
@@ -7,8 +15,17 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html lang="en" className={jost.className}>
+
+      <body>
+
+        <div className='wrapper mm:px-[30px] xl:px-[100px] pt-6 bg-headerBg'>
+          <Navbar />
+        </div>
+
+
+        {children}
+      </body>
     </html>
   )
 }
